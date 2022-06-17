@@ -13,12 +13,26 @@ import { UserService } from '../Servicios/user.service';
 export class RegistrarComponent implements OnInit {
   formReg!: FormGroup;
   usuario: Registro = {
+    nombre:'',
+    apellido:'',
+    direccion:'',
+    telefono:'',
     email: 'xxxxx@gmail.com',
+    edad:18,
     rol: false
+  };
+  aux: any={
+    email: 'xxxxx@gmail.com',
+    password: ' '
   };
   constructor( private userService:UserService, private router:Router,private rolesService:RolesService) { 
 
     this.formReg = new FormGroup({
+      nombre: new FormControl(),
+      apellido: new FormControl(),
+      direccion: new FormControl(),
+      telefono: new FormControl(),
+      edad: new FormControl(),
       email: new FormControl(),
       password: new FormControl()
     });
@@ -29,9 +43,16 @@ export class RegistrarComponent implements OnInit {
 
   async onSubmit(){
     this.usuario.email= this.formReg.get('email')?.value;
+    this.usuario.nombre= this.formReg.get('nombre')?.value;
+    this.usuario.apellido= this.formReg.get('apellido')?.value;
+    this.usuario.direccion= this.formReg.get('direccion')?.value;
+    this.usuario.telefono= this.formReg.get('telefono')?.value;
+    this.usuario.edad= this.formReg.get('edad')?.value;
       this.usuario.rol=false;
-    console.log(this.formReg.value);
-    this.userService.registrar(this.formReg.value)
+    this.aux.email=this.formReg.get('email')?.value;
+    this.aux.password=this.formReg.get('password')?.value;
+    console.log(this.aux);
+    this.userService.registrar(this.aux)
     .then( response => {
       
       console.log(response);

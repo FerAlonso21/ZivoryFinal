@@ -6,6 +6,7 @@ import { RegistrarComponent } from './General/registrar/registrar.component';
 import { canActivate,redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 import { NavbarComponent } from './Administrador/navbar/navbar.component';
 import { NavbarMiembroComponent } from './Miembros/navbar-miembro/navbar-miembro.component';
+import { AgregarVehiculoComponent } from './Administrador/agregar-vehiculo/agregar-vehiculo.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'registro',component: RegistrarComponent},
   {path: 'login',component: LoginComponent},
   {path: 'miembro',component: NavbarMiembroComponent},
+  {path: 'alta',component: AgregarVehiculoComponent},
 ];
 
 @NgModule({
