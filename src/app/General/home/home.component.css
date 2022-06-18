@@ -1,0 +1,31 @@
+.home{
+    background-color: #0b4d57;
+}
+.carousel{
+    background-color: #0b4d57;
+    text-align: center;
+ }
+ 
+ #redes{
+    margin-right: 20px;
+    color: #0b4d57;
+ }
+ #copy{
+    margin-left: 20px;
+ }
+ #imagen{
+    text-align: center;
+ }
+
+footer{
+    background-color: #0b4d57;
+    border-top: 1px solid gray;
+    color: white;
+}
+#rede{
+    color: white;
+}
+section{
+    width: 100%;
+    background-color: white;
+}
