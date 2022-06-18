@@ -1,1 +1,16 @@
-<p>renta-miembro works</p>
+<div class="container">
+    <div class="row g-3" >
+        <div class="col-12 col-md-6 col-lg-4" *ngFor="let i of array">
+            <div class="card">
+                <img src="{{i.url}}" class="card-img-top" alt="">
+                <div class="card-body">
+                    <h3 class="card-title">{{i.marca}} {{i.nombre}}</h3>
+                    <h5 class="card-text">Año: {{i.anio}}</h5>
+                    <h5 class="card-text">Tipo: {{i.tipo}}</h5>
+                    <h5 class="card-text">Color: {{i.color}}</h5>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+  </div>
