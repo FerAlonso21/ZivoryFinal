@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -13,13 +14,14 @@ export class NavbarComponent implements OnInit {
 	public text3: string;
 	admin: boolean=true;
 
-  constructor() { 
+  constructor( ) { 
     this.voices = [];
 		this.selectedVoice = null;
 		this.text = "";
 		this.text2="";
 		this.text3="";
   }
+ 
 
   ngOnInit(): void {
     this.voices = speechSynthesis.getVoices();

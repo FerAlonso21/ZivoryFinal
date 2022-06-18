@@ -7,6 +7,9 @@ import { canActivate,redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 import { NavbarComponent } from './Administrador/navbar/navbar.component';
 import { NavbarMiembroComponent } from './Miembros/navbar-miembro/navbar-miembro.component';
 import { AgregarVehiculoComponent } from './Administrador/agregar-vehiculo/agregar-vehiculo.component';
+import { ContactoComponent } from './General/contacto/contacto.component';
+import { FaqComponent } from './General/faq/faq.component';
+import { GraficaComponent } from './Administrador/grafica/grafica.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -14,8 +17,12 @@ const routes: Routes = [
   {path: 'home',component: HomeComponent},
   {path: 'registro',component: RegistrarComponent},
   {path: 'login',component: LoginComponent},
+  {path: 'contacto',component: ContactoComponent},
+  {path: 'faq',component: FaqComponent},
   {path: 'miembro',component: NavbarMiembroComponent},
   {path: 'alta',component: AgregarVehiculoComponent},
+  {path: 'grafica',component: GraficaComponent},
+
 ];
 
 @NgModule({
