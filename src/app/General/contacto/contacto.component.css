@@ -1,3 +1,11 @@
-div{
-    margin-bottom: 33.6%;
+.contacto{
+    background-color: white;
+    padding: 2%;
+    min-height: 73.5vh;
+}
+input,textarea{
+    background-color: rgb(16,111,126,0.2);
+}
+button{
+    margin-top: 1%;
 }
