@@ -1,1 +1,22 @@
-<p>baja-vehiculo works!</p>
+<h4>Eliminacion de auto</h4>
+<div>
+    <h2>Autos</h2>
+    <div *ngIf="!concentrado.length">No hay productos por el momento</div>
+    <table *ngIf="concentrado.length" class="table table-light table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <td>Nombre</td>
+          <td>Cantidad</td>
+          <td>Color</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of concentrado">
+            <td>{{ product.sucursal }}</td>
+            <td>{{ product.nombre_coche}}</td>
+            <td>{{ product.marca }}</td>
+  
+        </tr>
+      </tbody>
+    </table>
+  </div>

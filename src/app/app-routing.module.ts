@@ -10,7 +10,7 @@ import { AgregarVehiculoComponent } from './Administrador/agregar-vehiculo/agreg
 import { ContactoComponent } from './General/contacto/contacto.component';
 import { FaqComponent } from './General/faq/faq.component';
 import { GraficaComponent } from './Administrador/grafica/grafica.component';
-
+import { BajaVehiculoComponent } from './Administrador/baja-vehiculo/baja-vehiculo.component';
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
   { path: 'admin', component: NavbarComponent,...canActivate(() => redirectUnauthorizedTo(['/home']) ) },
@@ -22,6 +22,9 @@ const routes: Routes = [
   {path: 'miembro',component: NavbarMiembroComponent},
   {path: 'alta',component: AgregarVehiculoComponent},
   {path: 'grafica',component: GraficaComponent},
+  {path: 'baja',component: BajaVehiculoComponent},
+  {path: 'contacto', component: ContactoComponent},
+
 
 ];
 

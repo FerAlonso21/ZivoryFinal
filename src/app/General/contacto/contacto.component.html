@@ -1,4 +1,14 @@
-<div >
-    <p>contacto works!</p>
-</div>
+<h2 class="text-center">Contactanos</h2>
 
+<form [formGroup]="datos">
+    <div class="row justify-content-center">
+    <div class="col-lg-4 fondo">
+      <h3 class="text-center p-2">Mensaje dirigido a "Cuenta Administrador"</h3>
+      <input type="text" placeholder="Asunto" class="form-control" formControlName="asunto"><br>
+      <textarea class="form-control" placeholder="Mensaje" cols="40" rows="10" formControlName="msj"></textarea>
+      <div class="text-center p-2">
+      <button class="btn btn-outline-danger" (click)="envio()">Enviar</button>
+      </div>
+    </div>
+    </div>
+  </form>
