@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
              this.aux=true;
              this.info.email=this.formLogin.get('email')?.value;
              this.info.rol=1;
+             console.log("buenosdias")
              this.servicio.setRol(this.info);
               //this.router.navigate(['/admin']);
               

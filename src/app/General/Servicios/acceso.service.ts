@@ -22,6 +22,6 @@ export class AccesoService {
   setRol(usuario:Usuario):void{
     console.log("dsesde set "+ usuario.rol)
     this.rol$.next(usuario);
-    this.router.navigate(['/home']);
+    //this.router.navigate(['/home']);
   }
 }

@@ -1,108 +1,122 @@
 <nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#" [routerLink]="['home']">
-        <img src="../../../assets/img/logo-500.png" width="100" height="50" alt="">
-    </a>
-    <button class="navbar-toggler" type="button" id="b1" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" id="a1" aria-current="page" href="#" [routerLink]="['/home']">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" id="a2" aria-current="page" href="#" [routerLink]="['/contacto']">Contacto</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" id="a3" aria-current="page" href="#" [routerLink]="['/faq']">FAQs</a>
-          </li>
-          <div *ngIf="(selectedRol$ | async)?.rol ==1">
-              
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Gestionar
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" routerLink="/alta">Añadir Vehiculo</a></li>
-                  <li><a class="dropdown-item" routerLink="/baja">Dar Vehiculo de baja</a></li>
-                  
-                  <li><a class="dropdown-item" routerLink="/rentadmin">Rentar Vehiculo</a></li>
-                  <li><a class="dropdown-item" routerLink="/mantenimiento">Vehiculos proximos a Mantenimiento</a></li>
-                </ul>
-              </li>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#" [routerLink]="['home']">
+      <img src="../../../assets/img/logo-500.png" width="100" height="50" alt="">
+  </a>
+  <button class="navbar-toggler" type="button" id="b1" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" id="a1" aria-current="page" href="#" [routerLink]="['/home']">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" id="a1" aria-current="page" href="#" [routerLink]="['/contacto']">Contacto</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" id="a1" aria-current="page" href="#" [routerLink]="['/faq']">FAQ's</a>
+        </li>
+        <div *ngIf="(selectedRol$ | async)?.rol ==1 && auxiliar4==2">
             
-           
-             
-            
-            
-           
-          </div>
-        
-        <div *ngIf="(selectedRol$ | async)?.rol ==1">
-           
-            
-         
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Consultas
+                Gestionar
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" routerLink="/disponibilidad">Autos Disponibles</a></li>
-                <li><a class="dropdown-item" routerLink="/lista">Miembros Activos</a></li>
-                <li><a class="dropdown-item" routerLink="/consultaman">Vehiculos en Mantenimiento</a></li>
-                <li><a class="dropdown-item" routerLink="/detalle">Informacion por Vehiculo</a></li>
-                <li><a class="dropdown-item" routerLink="/grafica">Grafica Autos Disponibles</a></li>
+                <li><a class="dropdown-item" routerLink="/alta">Añadir Vehiculo</a></li>
+                <li><a class="dropdown-item" routerLink="/baja">Dar Vehiculo de baja</a></li>
+                <li><a class="dropdown-item" routerLink="/rentadmin">Rentar Vehiculo</a></li>
+                <li><a class="dropdown-item" routerLink="/mantenimiento">Vehiculos proximos a Mantenimiento</a></li>
               </ul>
             </li>
-          
-          
-         
         </div>
-          <div *ngIf="(selectedRol$ | async)?.rol ==2">
-            <li class="nav-item">
-              <a class="nav-link active" id="a3" aria-current="page" href="#" [routerLink]="['/renta']">Rentar</a>
-            </li>
-
-          </div>
-           
-        </ul>
-      </div>
       
-      
-      
-    </div>
-    <div class="container-fluid" id="c2">
-      <div *ngIf="(selectedRol$ | async)?.rol ==3">
-        <div class="miembro">
-          <button routerLink="/login"  type="button" class="btn btn-outline-light" id="bmiembro" > 
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                </svg>
-            Iniciar Sesion
-          </button>
-    
-        </div>
-      </div>
-      
-      <div class="form-actions">
-        <button type="button" (click)="speak()" class="btn btn-dark" id="b1">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eyeglasses" viewBox="0 0 16 16">
-            <path d="M4 6a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm2.625.547a3 3 0 0 0-5.584.953H.5a.5.5 0 0 0 0 1h.541A3 3 0 0 0 7 8a1 1 0 0 1 2 0 3 3 0 0 0 5.959.5h.541a.5.5 0 0 0 0-1h-.541a3 3 0 0 0-5.584-.953A1.993 1.993 0 0 0 8 6c-.532 0-1.016.208-1.375.547zM14 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/>
-          </svg>
-  
-        </button>
+      <div *ngIf="(selectedRol$ | async)?.rol ==1">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Consultas
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" routerLink="/disponibilidad">Autos Disponibles</a></li>
+              <li><a class="dropdown-item" routerLink="/lista">Miembros Activos</a></li>
+              <li><a class="dropdown-item" routerLink="/consultaman">Vehiculos en Mantenimiento</a></li>
+              <li><a class="dropdown-item" routerLink="/detalle">Informacion por Vehiculo</a></li>
+              <li><a class="dropdown-item" routerLink="/grafica">Grafica Autos Disponibles</a></li>
+            </ul>
+          </li>
         
-        <button type="button" (click)="stop()" class="btn btn-dark" id="b1">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-stop-fill" viewBox="0 0 16 16">
-            <path d="M5 3.5h6A1.5 1.5 0 0 1 12.5 5v6a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 11V5A1.5 1.5 0 0 1 5 3.5z"/>
-          </svg>
-  
-        </button>
+        
+       
       </div>
+        <div *ngIf="(selectedRol$ | async)?.rol ==2">
+          <li class="nav-item">
+            <a class="nav-link active" id="a1" aria-current="page" href="#" [routerLink]="['/renta']">Rentar</a>
+          </li>
 
+        </div>
+         
+      </ul>
     </div>
-   
     
-  </nav>
+    
+    
+  </div>
+  <div class="container-fluid" id="c2">
+    <div *ngIf="(selectedRol$ | async)?.rol ==3">
+      <div class="miembro">
+        <button routerLink="/login"  type="button" class="btn btn-outline-light" id="bmiembro" (click)="funcion3()" > 
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+              </svg>
+          Iniciar Sesion
+        </button>
+  
+      </div>
+    </div>
+    <div *ngIf="(selectedRol$ | async)?.rol ==1">
+      <div class="miembro">
+        <button   type="button" class="btn btn-outline-light" id="bmiembro" (click)="salir()"> 
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
+            <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+          </svg>
+          Cerrar Sesion
+        </button>
+  
+      </div>
+    </div>
+    <div *ngIf="(selectedRol$ | async)?.rol ==2">
+      <div class="miembro">
+        <button   type="button" class="btn btn-outline-light" id="bmiembro" (click)="salir()" > 
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
+            <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+          </svg>
+          Cerrar Sesion
+        </button>
+  
+      </div>
+    </div>
+    
+    <div class="form-actions">
+      <button type="button" (click)="speak()" class="btn btn-dark" id="b1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eyeglasses" viewBox="0 0 16 16">
+          <path d="M4 6a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm2.625.547a3 3 0 0 0-5.584.953H.5a.5.5 0 0 0 0 1h.541A3 3 0 0 0 7 8a1 1 0 0 1 2 0 3 3 0 0 0 5.959.5h.541a.5.5 0 0 0 0-1h-.541a3 3 0 0 0-5.584-.953A1.993 1.993 0 0 0 8 6c-.532 0-1.016.208-1.375.547zM14 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/>
+        </svg>
+
+      </button>
+      
+      <button type="button" (click)="stop()" class="btn btn-dark" id="b1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-stop-fill" viewBox="0 0 16 16">
+          <path d="M5 3.5h6A1.5 1.5 0 0 1 12.5 5v6a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 11V5A1.5 1.5 0 0 1 5 3.5z"/>
+        </svg>
+
+      </button>
+    </div>
+
+  </div>
+ 
+  
+</nav>
