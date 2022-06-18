@@ -5,6 +5,7 @@
 }
 input,textarea{
     background-color: rgb(16,111,126,0.2);
+    border: 1px solid #0b4d57;
 }
 button{
     margin-top: 1%;

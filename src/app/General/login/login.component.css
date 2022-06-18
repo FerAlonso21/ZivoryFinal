@@ -1,0 +1,19 @@
+.iniciar{
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    min-height: 73.5vh;
+}
+.login{
+   
+    width: 40%;
+    text-align: center;
+    margin-top: 2%;
+}
+.mb-3{
+    text-align: left;
+}
+.form-control{
+    background-color: rgb(16,111,126,0.2);
+    border: 1px solid #0b4d57;
+}
