@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './General/home/home.component';
+import { ContactoComponent } from './General/contacto/contacto.component';
+import { FaqComponent } from './General/faq/faq.component';
 import { LoginComponent } from './General/login/login.component';
 import { RegistrarComponent } from './General/registrar/registrar.component';
 import { canActivate,redirectUnauthorizedTo } from '@angular/fire/auth-guard';
@@ -14,6 +16,8 @@ const routes: Routes = [
   {path: 'registro',component: RegistrarComponent},
   {path: 'login',component: LoginComponent},
   {path: 'miembro',component: NavbarMiembroComponent},
+  {path: 'contacto',component: ContactoComponent},
+  {path: 'faq',component: FaqComponent},
 ];
 
 @NgModule({

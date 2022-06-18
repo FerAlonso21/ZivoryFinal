@@ -1,0 +1,51 @@
+#a1,#a2,#a3{
+    color:#0b4d57;
+    font-size: 20px;
+}
+#a1:hover{
+    color: white;
+    
+}
+
+#a2:hover{
+    color: white;
+    
+}
+#a3:hover{
+    color: white;
+    
+}
+
+
+img{
+    margin-left: 20px;
+}
+#b1{
+    margin: 2px;
+    border-radius: 25px;
+    background-color: #0b4d57;
+}
+#b1:hover{
+    color: #106f7e;
+}
+#bmiembro:hover{
+    color:#0b4d57;
+
+}
+#c2{
+    
+    width: 42%;
+}
+
+@media (max-width: 768px) {
+    li{
+        text-align: center;
+    }
+    #c2{
+        width: 100%;
+    }
+    
+}
+#navbar{
+    background-color: #17a2b8;
+}
