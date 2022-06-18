@@ -28,6 +28,9 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { FooterComponent } from './General/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DisponibilidadComponent } from './Administrador/disponibilidad/disponibilidad.component';
+import { ListamComponent } from './Administrador/listam/listam.component';
+import { ConsultamanComponent } from './Administrador/consultaman/consultaman.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +51,10 @@ import { HttpClientModule } from '@angular/common/http';
     GraficaComponent,
     RentaMiembroComponent,
     NavbarMiembroComponent,
-    FooterComponent
+    FooterComponent,
+    DisponibilidadComponent,
+    ListamComponent,
+    ConsultamanComponent
   ],
   imports: [
     BrowserModule,
