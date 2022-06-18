@@ -32,7 +32,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { DisponibilidadComponent } from './Administrador/disponibilidad/disponibilidad.component';
 import { ListamComponent } from './Administrador/listam/listam.component';
 import { ConsultamanComponent } from './Administrador/consultaman/consultaman.component';
-
+import { AngularFirestore, AngularFirestoreCollection} from '@angular/fire/compat/firestore';
+import { AngularFireModule } from '@angular/fire/compat';
 
 @NgModule({
   declarations: [
