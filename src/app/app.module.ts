@@ -26,6 +26,7 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { FooterComponent } from './General/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
     DetalleVehiculoComponent,
     GraficaComponent,
     RentaMiembroComponent,
-    NavbarMiembroComponent
+    NavbarMiembroComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
