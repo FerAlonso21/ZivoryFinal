@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Registro from 'src/app/Interfaces/registro.interface';
 import { RolesService } from '../Servicios/roles.service';
 import { UserService } from '../Servicios/user.service';
+import { validarQueSeanIguales } from './app.validator';
 
 @Component({
   selector: 'app-registrar',
@@ -12,6 +13,7 @@ import { UserService } from '../Servicios/user.service';
 })
 export class RegistrarComponent implements OnInit {
   formReg!: FormGroup;
+  rea!:FormGroup;
   usuario: Registro = {
     nombre:'',
     apellido:'',
@@ -25,7 +27,7 @@ export class RegistrarComponent implements OnInit {
     email: 'xxxxx@gmail.com',
     password: ' '
   };
-  constructor( private userService:UserService, private router:Router,private rolesService:RolesService) { 
+  constructor(private fb:FormBuilder, private userService:UserService, private router:Router,private rolesService:RolesService) { 
 
     this.formReg = new FormGroup({
       nombre: new FormControl(),
@@ -34,11 +36,25 @@ export class RegistrarComponent implements OnInit {
       telefono: new FormControl(),
       edad: new FormControl(),
       email: new FormControl(),
-      password: new FormControl()
+      
     });
+
+    // {
+    //   Validators:this.Mustmatch('password1','password2');
+    // }
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+        this.initForm();
+
+  }
+  initForm() {
+    this.rea = this.fb.group({
+      'password1':  ['', Validators.required],
+      'password2': ['', Validators.required]
+    }, {
+      validators: validarQueSeanIguales
+    });
   }
 
   async onSubmit(){
@@ -50,7 +66,9 @@ export class RegistrarComponent implements OnInit {
     this.usuario.edad= this.formReg.get('edad')?.value;
       this.usuario.rol=false;
     this.aux.email=this.formReg.get('email')?.value;
-    this.aux.password=this.formReg.get('password')?.value;
+    this.aux.password1=this.formReg.get('password1')?.value;
+    this.aux.password2=this.formReg.get('password2')?.value;
+
     console.log(this.aux);
     this.userService.registrar(this.aux)
     .then( response => {
@@ -64,5 +82,20 @@ export class RegistrarComponent implements OnInit {
     .catch( error => console.log(error));
     const response2 = await this.rolesService.addRegistro(this.usuario);
   }
+get f(){
+  return this.formReg.controls;
+}
+get g(){
+  return this.rea.controls;
+}
+checarSiSonIguales(): boolean {  
+  const a= this.checarSiSonTamano();
+  return this.rea.hasError('noSonIguales') 
 
 }
+checarSiSonTamano(): boolean {  
+  return this.rea.hasError('noSonTamano') 
+}
+
+}
+
