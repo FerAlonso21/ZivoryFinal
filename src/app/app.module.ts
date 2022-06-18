@@ -28,6 +28,9 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { FooterComponent } from './General/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AngularFirestore, AngularFirestoreCollection} from '@angular/fire/compat/firestore';
+import { AngularFireModule } from '@angular/fire/compat';
+
 
 @NgModule({
   declarations: [
@@ -48,7 +51,8 @@ import { HttpClientModule } from '@angular/common/http';
     GraficaComponent,
     RentaMiembroComponent,
     NavbarMiembroComponent,
-    FooterComponent
+    FooterComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -56,6 +60,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore())

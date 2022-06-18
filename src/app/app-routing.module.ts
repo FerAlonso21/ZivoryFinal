@@ -11,6 +11,8 @@ import { ContactoComponent } from './General/contacto/contacto.component';
 import { FaqComponent } from './General/faq/faq.component';
 import { GraficaComponent } from './Administrador/grafica/grafica.component';
 import { BajaVehiculoComponent } from './Administrador/baja-vehiculo/baja-vehiculo.component';
+import { RentaMiembroComponent } from './Miembros/renta-miembro/renta-miembro.component';
+import { RentaVehiculoComponent } from './Administrador/renta-vehiculo/renta-vehiculo.component';
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
   { path: 'admin', component: NavbarComponent,...canActivate(() => redirectUnauthorizedTo(['/home']) ) },
@@ -24,6 +26,8 @@ const routes: Routes = [
   {path: 'grafica',component: GraficaComponent},
   {path: 'baja',component: BajaVehiculoComponent},
   {path: 'contacto', component: ContactoComponent},
+  {path: 'renta', component: RentaVehiculoComponent},
+
 
 
 ];

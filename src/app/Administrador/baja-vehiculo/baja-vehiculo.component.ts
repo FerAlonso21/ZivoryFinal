@@ -1,6 +1,8 @@
+
 import { Component, OnInit } from '@angular/core';
 import Principal from 'src/app/Interfaces/Principal.interface';
 import { PrincipalService } from '../Servicios/principal.service';
+import { AngularFirestore, AngularFirestoreCollection} from '@angular/fire/compat/firestore';
 
 
 
@@ -11,18 +13,19 @@ import { PrincipalService } from '../Servicios/principal.service';
 })
 export class BajaVehiculoComponent implements OnInit {
  
-  concentrado: Principal[]=[];
-  constructor( private principalService: PrincipalService) { }
+  principal:Principal[]=[];
+  constructor( public principalService: PrincipalService) { }
 
   ngOnInit(): void {
-this.principalService.getAutos().subscribe(concentrado =>{
-  this.concentrado=concentrado;
-})
-
+      this.principalService.getAutos().subscribe(principal =>{
+        console.log(principal);
+        this.principal=principal;
+      })
   }
 
-  bajavehiculo(){
-    console.log('Auto eliminado');
+   async borrar(principal:Principal){
+     const response = await this.principalService.eliminar(principal); 
+     console.log(response);
   }
+  
 }
-

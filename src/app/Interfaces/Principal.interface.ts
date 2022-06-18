@@ -1,6 +1,7 @@
 export default interface Principal{
+    id?:string;
     sucursal:string;
-    nombre_coche:string;
+    nombre_coche?:string;
     marca:string;
     anio:string;
     tipo:string;
