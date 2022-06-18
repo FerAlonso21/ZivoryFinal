@@ -28,9 +28,11 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { FooterComponent } from './General/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
+
 import { DisponibilidadComponent } from './Administrador/disponibilidad/disponibilidad.component';
 import { ListamComponent } from './Administrador/listam/listam.component';
 import { ConsultamanComponent } from './Administrador/consultaman/consultaman.component';
+
 
 @NgModule({
   declarations: [
@@ -52,9 +54,11 @@ import { ConsultamanComponent } from './Administrador/consultaman/consultaman.co
     RentaMiembroComponent,
     NavbarMiembroComponent,
     FooterComponent,
+
     DisponibilidadComponent,
     ListamComponent,
     ConsultamanComponent
+
   ],
   imports: [
     BrowserModule,
@@ -62,6 +66,7 @@ import { ConsultamanComponent } from './Administrador/consultaman/consultaman.co
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore())

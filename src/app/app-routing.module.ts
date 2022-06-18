@@ -11,6 +11,7 @@ import { ContactoComponent } from './General/contacto/contacto.component';
 import { FaqComponent } from './General/faq/faq.component';
 import { GraficaComponent } from './Administrador/grafica/grafica.component';
 import { BajaVehiculoComponent } from './Administrador/baja-vehiculo/baja-vehiculo.component';
+
 import { RentaVehiculoComponent } from './Administrador/renta-vehiculo/renta-vehiculo.component';
 import { RentaMiembroComponent } from './Miembros/renta-miembro/renta-miembro.component';
 import { MantenimientoVehiculoComponent } from './Administrador/mantenimiento-vehiculo/mantenimiento-vehiculo.component';
@@ -18,6 +19,7 @@ import { DisponibilidadComponent } from './Administrador/disponibilidad/disponib
 import { ConsultamanComponent } from './Administrador/consultaman/consultaman.component';
 import { ListamComponent } from './Administrador/listam/listam.component';
 import { DetalleVehiculoComponent } from './Administrador/detalle-vehiculo/detalle-vehiculo.component';
+
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
   { path: 'admin', component: NavbarComponent,...canActivate(() => redirectUnauthorizedTo(['/home']) ) },
@@ -30,6 +32,7 @@ const routes: Routes = [
   {path: 'alta',component: AgregarVehiculoComponent},
   {path: 'grafica',component: GraficaComponent,...canActivate(() => redirectUnauthorizedTo(['/home']) )},
   {path: 'baja',component: BajaVehiculoComponent},
+
   {path: 'contacto', component: ContactoComponent}, 
   {path: 'renta', component: RentaMiembroComponent,...canActivate(() => redirectUnauthorizedTo(['/home']) )},
   {path: 'alta', component: AgregarVehiculoComponent,...canActivate(() => redirectUnauthorizedTo(['/home']) )},
@@ -41,6 +44,7 @@ const routes: Routes = [
   {path: 'lista', component: ListamComponent,...canActivate(() => redirectUnauthorizedTo(['/home']) )},
   {path: 'mantenimiento', component: MantenimientoVehiculoComponent,...canActivate(() => redirectUnauthorizedTo(['/home']) )},
   {path: 'detalle', component: DetalleVehiculoComponent,...canActivate(() => redirectUnauthorizedTo(['/home']) )},
+
 ];
 
 @NgModule({
