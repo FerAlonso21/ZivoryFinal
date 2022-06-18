@@ -1,4 +1,4 @@
-#a1,#a2,#a3{
+#a1{
     color:#0b4d57;
     font-size: 20px;
 }
@@ -6,24 +6,25 @@
     color: white;
     
 }
+.dropdown-menu{
+    background-color:rgb(16,111,126,0.6); ;
 
-#a2:hover{
-    color: white;
-    
 }
-#a3:hover{
-    color: white;
-    
+#navbarDropdown{
+    color:#0b4d57;
+    font-size: 20px;
 }
-
-
 img{
     margin-left: 20px;
+    margin-right: 20px;
 }
 #b1{
     margin: 2px;
     border-radius: 25px;
     background-color: #0b4d57;
+}
+#bmiembro{
+
 }
 #b1:hover{
     color: #106f7e;
@@ -33,8 +34,7 @@ img{
 
 }
 #c2{
-    
-    width: 42%;
+    width: 31%;
 }
 
 @media (max-width: 768px) {

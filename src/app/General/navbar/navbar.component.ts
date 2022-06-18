@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import Usuario from 'src/app/Interfaces/UsuariosLogin.interface';
+import { AccesoService } from '../Servicios/acceso.service';
+import { UserService } from '../Servicios/user.service';
 
 
 @Component({
@@ -12,9 +16,14 @@ export class NavbarComponent implements OnInit {
 	public voices: SpeechSynthesisVoice[];
 	public text2: string;
 	public text3: string;
+  auxiliar4:number=1;
+  renovar: Usuario={
+    email:'texto',
+    rol:3
+  };
 	admin: boolean=true;
-
-  constructor( ) { 
+  selectedRol$ = this.servicio.selectedRol$;
+  constructor(private servicio:AccesoService,private userService:UserService ,private router:Router ) { 
     this.voices = [];
 		this.selectedVoice = null;
 		this.text = "";
@@ -38,6 +47,13 @@ export class NavbarComponent implements OnInit {
 				}
 			);
 		}
+  }
+
+  funcion3(){
+    
+   this.auxiliar4=2;
+   console.log("si entreee"+this,this.auxiliar4);
+
   }
   public speak() : void {
     let text1=document.getElementById('a1')?.innerHTML;
@@ -65,6 +81,23 @@ export class NavbarComponent implements OnInit {
       utterance.voice = this.selectedVoice;
       utterance.rate = 1;
       speechSynthesis.speak( utterance );
+    }
+
+    salir(){
+      this.renovar.email="string"
+      this.renovar.rol=3;
+      console.log(this.renovar);
+      this.servicio.setRol(this.renovar);
+      this.userService.logout()
+    .then(()=>{
+      
+      window.location.reload();
+      
+      this.auxiliar4=1;
+      
+        
+    })
+    .catch(error => console.log(error))
     }
     
 
