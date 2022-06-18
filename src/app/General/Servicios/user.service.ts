@@ -16,6 +16,7 @@ export class UserService {
     return signInWithEmailAndPassword(this.auth,email,password);
   }
   logout(){
+    console.log("aqui es el logout");
     return signOut(this.auth);
   }
 }

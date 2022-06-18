@@ -87,10 +87,14 @@ export class NavbarComponent implements OnInit {
       this.renovar.email="string"
       this.renovar.rol=3;
       console.log(this.renovar);
+      this.servicio.setRol(this.renovar);
       this.userService.logout()
     .then(()=>{
+      
+      window.location.reload();
+      
       this.auxiliar4=1;
-      this.servicio.setRol(this.renovar);
+      
         
     })
     .catch(error => console.log(error))

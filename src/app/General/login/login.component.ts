@@ -27,11 +27,12 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.servicio.selectedRol$.subscribe((usuario:Usuario) => this.info = usuario)
   }
-  onSubmit(){ 
+  cargar(){ 
     this.userService.login(this.formLogin.value)
     .then(response => {
       
       this.rolesService.getRoles().subscribe(registro => {
+        console.log("registro"+registro);
         for(let i in registro){
           if(registro[i].rol==true){
            
