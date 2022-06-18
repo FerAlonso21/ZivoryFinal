@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AccesoService } from '../Servicios/acceso.service';
 
 
 @Component({
@@ -13,8 +14,8 @@ export class NavbarComponent implements OnInit {
 	public text2: string;
 	public text3: string;
 	admin: boolean=true;
-
-  constructor( ) { 
+  selectedRol$ = this.servicio.selectedRol$;
+  constructor(private servicio:AccesoService ) { 
     this.voices = [];
 		this.selectedVoice = null;
 		this.text = "";
