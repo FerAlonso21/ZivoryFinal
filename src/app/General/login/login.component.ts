@@ -10,6 +10,7 @@ import { AccesoService } from '../Servicios/acceso.service';
 import Usuario from 'src/app/Interfaces/UsuariosLogin.interface';
 import * as auth from 'firebase/auth';
 import swal from 'sweetalert2';
+import { CustomPipePipe } from 'src/app/pipe/custom-pipe.pipe';
 
 @Component({
   selector: 'app-login',
@@ -20,6 +21,9 @@ export class LoginComponent implements OnInit {
   recaptchaVerifier: any;
   formLogin !:FormGroup;
   aux:Boolean=false;
+  email:string="Usuario";
+  Password:string="Contraseña";
+
   info!: Usuario;
   constructor( private userService:UserService, private router:Router, public rolesService:RolesService,private servicio:AccesoService,
     public ngZone: NgZone) {

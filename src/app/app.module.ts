@@ -34,6 +34,7 @@ import { ListamComponent } from './Administrador/listam/listam.component';
 import { ConsultamanComponent } from './Administrador/consultaman/consultaman.component';
 import { AngularFirestore, AngularFirestoreCollection} from '@angular/fire/compat/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
+import { CustomPipePipe } from './pipe/custom-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { AngularFireModule } from '@angular/fire/compat';
 
     DisponibilidadComponent,
     ListamComponent,
-    ConsultamanComponent
+    ConsultamanComponent,
+    CustomPipePipe
 
   ],
   imports: [

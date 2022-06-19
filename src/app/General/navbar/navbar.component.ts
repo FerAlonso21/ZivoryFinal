@@ -4,7 +4,7 @@ import Usuario from 'src/app/Interfaces/UsuariosLogin.interface';
 import { AccesoService } from '../Servicios/acceso.service';
 import { RolesService } from '../Servicios/roles.service';
 import { UserService } from '../Servicios/user.service';
-
+import { CustomPipePipe } from 'src/app/pipe/custom-pipe.pipe';
 
 @Component({
   selector: 'app-navbar',
