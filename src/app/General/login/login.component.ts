@@ -47,6 +47,8 @@ export class LoginComponent implements OnInit {
       allowOutsideClick: false,
       title: "Cargando..",
       text: "Un momento!",
+    }).then((result)=>{
+      
     });
     swal.showLoading();
     this.userService.login(this.formLogin.value)

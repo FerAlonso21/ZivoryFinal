@@ -2,7 +2,12 @@
 <form [formGroup]="formAlta" (ngSubmit)="onSubmit()">
     <div class="mb-3">
         <label class="form-label">Sucursal</label>
-        <input type="text" class="form-control" formControlName="sucursal">
+        <select name="" id="" formControlName="sucursal">
+            <option value="Bosques">Bosques</option>
+            <option value="Centro">Centro</option>
+            <option value="San Gerardo">San Gerardo</option>
+        </select>
+        
     </div>
     <div class="mb-3">
         <label class="form-label">Nombre_Coche</label>

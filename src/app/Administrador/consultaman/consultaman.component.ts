@@ -17,7 +17,7 @@ export class ConsultamanComponent implements OnInit {
       
       for(let i of this.principal){
           
-        if(i.disponibilidad=="true"){
+        if(i.mantenimiento=="true"){
             this.array.push(i);
         }
       }
