@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Registro from 'src/app/Interfaces/registro.interface';
+import Usuario from 'src/app/Interfaces/UsuariosLogin.interface';
+import { AccesoService } from '../Servicios/acceso.service';
 import { RolesService } from '../Servicios/roles.service';
 import { UserService } from '../Servicios/user.service';
 import { validarQueSeanIguales } from './app.validator';
@@ -12,8 +14,11 @@ import { validarQueSeanIguales } from './app.validator';
   styleUrls: ['./registrar.component.css']
 })
 export class RegistrarComponent implements OnInit {
+  inf!:Usuario;
+
   formReg!: FormGroup;
   rea!:FormGroup;
+  mandar!:FormGroup;
   usuario: Registro = {
     nombre:'',
     apellido:'',
@@ -25,9 +30,9 @@ export class RegistrarComponent implements OnInit {
   };
   aux: any={
     email: 'xxxxx@gmail.com',
-    password: ' '
+    password1:''
   };
-  constructor(private fb:FormBuilder, private userService:UserService, private router:Router,private rolesService:RolesService) { 
+  constructor(private fb:FormBuilder, private userService:UserService, private router:Router,private rolesService:RolesService,public accesoService:AccesoService) { 
 
     this.formReg = new FormGroup({
       nombre: new FormControl(),
@@ -35,9 +40,18 @@ export class RegistrarComponent implements OnInit {
       direccion: new FormControl(),
       telefono: new FormControl(),
       edad: new FormControl(),
-      email: new FormControl(),
       
-    });
+      
+    }),
+    this.rea = this.fb.group({
+      email: new FormControl(),
+      'password1':  ['', Validators.required],
+      'password2': ['', Validators.required]
+    }, {
+      validators: validarQueSeanIguales
+    })
+    
+    ;
 
     // {
     //   Validators:this.Mustmatch('password1','password2');
@@ -45,49 +59,60 @@ export class RegistrarComponent implements OnInit {
   }
 
   ngOnInit() {
-        this.initForm();
+    this.accesoService.selectedRol$.subscribe((usuario:Usuario)=>this.inf=usuario);
+
 
   }
-  initForm() {
-    this.rea = this.fb.group({
-      'password1':  ['', Validators.required],
-      'password2': ['', Validators.required]
-    }, {
-      validators: validarQueSeanIguales
-    });
-  }
-
+  
   async onSubmit(){
-    this.usuario.email= this.formReg.get('email')?.value;
+    this.usuario.email= this.rea.get('email')?.value;
     this.usuario.nombre= this.formReg.get('nombre')?.value;
     this.usuario.apellido= this.formReg.get('apellido')?.value;
     this.usuario.direccion= this.formReg.get('direccion')?.value;
     this.usuario.telefono= this.formReg.get('telefono')?.value;
     this.usuario.edad= this.formReg.get('edad')?.value;
-      this.usuario.rol=false;
-    this.aux.email=this.formReg.get('email')?.value;
-    this.aux.password1=this.formReg.get('password1')?.value;
-    this.aux.password2=this.formReg.get('password2')?.value;
+    this.usuario.rol=false;
+    this.aux.email=this.rea.get('email')?.value;
+    this.aux.password1=this.rea.get('password1')?.value;
 
-    console.log(this.aux);
-    this.userService.registrar(this.aux)
-    .then( response => {
+    const {email,password1}=this.rea.value;
+    console.log(this.rea.value);
+    this.userService.registrar(email,password1).then((res)=>{ 
+      this.inf.rol=2   
+      this.inf.email=this.rea.get('email')?.value;
       
-      console.log(response);
-      this.router.navigate(['/login']);
+      console.log("registrado exitosamente");
+      this.rolesService.addRegistro(this.usuario);
+      console.log(this.inf);
+      this.accesoService.setRol(this.inf);
+      this.router.navigate(['/Home']);
+
+    });
+    // this.aux.password2=this.formReg.get('password2')?.value;
+
+    
+    // console.log("asa: "+this.aux);
+    // this.userService.registrar(email,password1)
+    // .then( response => {
+      
+    //   console.log(response);
+      
       
  
       
-    })
-    .catch( error => console.log(error));
-    const response2 = await this.rolesService.addRegistro(this.usuario);
+    // })
+    // .catch( error => console.log(error));
   }
+
+
 get f(){
   return this.formReg.controls;
 }
 get g(){
   return this.rea.controls;
 }
+
+
 checarSiSonIguales(): boolean {  
   const a= this.checarSiSonTamano();
   return this.rea.hasError('noSonIguales') 

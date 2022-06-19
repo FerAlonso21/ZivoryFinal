@@ -17,6 +17,9 @@
         <li class="nav-item">
           <a class="nav-link active" id="a1" aria-current="page" href="#" [routerLink]="['/faq']">FAQ's</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link active" id="a1" aria-current="page" *ngIf="userLogged|async as user">{{user.email}}</a>
+        </li>
         <div *ngIf="(selectedRol$ | async)?.rol ==1">
             
             <li class="nav-item dropdown">

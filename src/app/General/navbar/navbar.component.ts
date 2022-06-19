@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Usuario from 'src/app/Interfaces/UsuariosLogin.interface';
 import { AccesoService } from '../Servicios/acceso.service';
+import { RolesService } from '../Servicios/roles.service';
 import { UserService } from '../Servicios/user.service';
 
 
@@ -11,6 +12,8 @@ import { UserService } from '../Servicios/user.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  
+  userLogged=this.rolesService.getUserLog();
   public selectedVoice: SpeechSynthesisVoice | null;
 	public text: string;
 	public voices: SpeechSynthesisVoice[];
@@ -23,7 +26,7 @@ export class NavbarComponent implements OnInit {
   };
 	admin: boolean=true;
   selectedRol$ = this.servicio.selectedRol$;
-  constructor(private servicio:AccesoService,private userService:UserService ,private router:Router ) { 
+  constructor(private servicio:AccesoService ,private router:Router,public rolesService:RolesService, public userService:UserService) { 
     this.voices = [];
 		this.selectedVoice = null;
 		this.text = "";
