@@ -1,4 +1,4 @@
-#a1{
+#a1,#a2,#a3,#a4,#a5,#a6,#a7{
     color:#0b4d57;
     font-size: 20px;
 }
@@ -6,14 +6,31 @@
     color: white;
     
 }
+#a2:hover{
+    color: white;
+    
+}
+#a3:hover{
+    color: white;
+    
+}
+#a5:hover{
+    color: white;
+    
+}
+#a6:hover{
+    color: white;
+    
+}
+#a7:hover{
+    color: white;
+    
+}
 .dropdown-menu{
     background-color:rgb(16,111,126,0.6); ;
 
 }
-#navbarDropdown{
-    color:#0b4d57;
-    font-size: 20px;
-}
+
 img{
     margin-left: 20px;
     margin-right: 20px;
@@ -23,9 +40,7 @@ img{
     border-radius: 25px;
     background-color: #0b4d57;
 }
-#bmiembro{
 
-}
 #b1:hover{
     color: #106f7e;
 }

@@ -4,7 +4,7 @@
             <div class="card">
                 <img src="{{i.url}}" class="card-img-top" alt="">
                 <div class="card-body">
-                    <h3 class="card-title">{{i.marca}} {{i.nombre}}</h3>
+                    <h3 class="card-title">{{i.marca | uppercase}} {{i.nombre_coche | uppercase}} </h3>
                     <h5 class="card-text">Año: {{i.anio}}</h5>
                     <h5 class="card-text">Tipo: {{i.tipo}}</h5>
                     <h5 class="card-text">Color: {{i.color}}</h5>

@@ -15,10 +15,7 @@ export class NavbarComponent implements OnInit {
   
   userLogged=this.rolesService.getUserLog();
   public selectedVoice: SpeechSynthesisVoice | null;
-	public text: string;
 	public voices: SpeechSynthesisVoice[];
-	public text2: string;
-	public text3: string;
   auxiliar4:number=1;
   renovar: Usuario={
     email:'texto',
@@ -29,9 +26,9 @@ export class NavbarComponent implements OnInit {
   constructor(private servicio:AccesoService ,private router:Router,public rolesService:RolesService, public userService:UserService) { 
     this.voices = [];
 		this.selectedVoice = null;
-		this.text = "";
-		this.text2="";
-		this.text3="";
+		// this.text = "";
+		// this.text2="";
+		// this.text3="";
   }
  
 
@@ -62,14 +59,46 @@ export class NavbarComponent implements OnInit {
     let text1=document.getElementById('a1')?.innerHTML;
     let text2=document.getElementById('a2')?.innerHTML;
     let text3=document.getElementById('a3')?.innerHTML;
+    let text4=document.getElementById('a4')?.innerHTML;
+    let text5=document.getElementById('a5')?.innerHTML;
+    let text6=document.getElementById('a6')?.innerHTML;
+    let text7=document.getElementById('a7')?.innerHTML;
+    console.log(this.renovar.rol);
+    if (this.renovar.rol==3) {
       let textf=text1+";"+text2+";"+text3;
-    console.log("text="+textf);
       if ( ! this.selectedVoice || ! textf ) {
         return;
       }
       this.stop();
       console.log(this.selectedVoice);
       this.synthesizeSpeechFromText( this.selectedVoice, 1, textf );
+    }
+
+    if (this.renovar.rol==2) {
+      let textf=text1+";"+text2+";"+text3+";"+text4+";"+text7;
+      if ( ! this.selectedVoice || ! textf ) {
+        return;
+      }
+      this.stop();
+      console.log(this.selectedVoice);
+      this.synthesizeSpeechFromText( this.selectedVoice, 1, textf );
+    }
+
+    if (this.renovar.rol==1) {
+      let textf=text1+";"+text2+";"+text3+";"+text4+";"+text5+";"+text6;
+      if ( ! this.selectedVoice || ! textf ) {
+        return;
+      }
+      this.stop();
+      console.log(this.selectedVoice);
+      this.synthesizeSpeechFromText( this.selectedVoice, 1, textf );
+    }
+
+
+
+    
+      
+      
       
     }
   
