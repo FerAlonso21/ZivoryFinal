@@ -1,1 +1,31 @@
+<div class="container">
+    <h3>MIEMBROS ACTIVOS</h3>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Direccion</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Edad</th>
+            <th scope="col">Email</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of array">
+                <td>{{i.nombre}}</td>
+                <td>{{i.apellido}}</td>
+                <td>{{i.direccion}}</td>
+                <td>{{i.telefono}}</td>
+                <td>{{i.edad}}</td>
+                <td>{{i.email}}</td>
+                
+                
 
+            </tr>
+          
+          
+        </tbody>
+      </table>
+</div>
