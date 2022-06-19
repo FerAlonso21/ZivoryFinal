@@ -34,25 +34,22 @@ export class RentaMiembroComponent implements OnInit {
       title: '<strong><u>Detalles</u></strong>',
       
       html:
-      '<div class="row"> <div class="col">'+
+      '<div >'+
+     
         '<h3>Sucursal: '+sucursal+'</h3>'+
         '<h3>Año: '+anio+'</h3>'+
         '<h3>Color: '+color+'</h3>'+
         '<h3>Transmision: '+transmision+'</h3>'+
-        '<h3>Tipo: '+tipo+'</h3>'+'</div>'+
-        "<div class='col'>"+
-    "<ngx-qrcode [elementType]='"+this.elementType+"' [errorCorrectionLevel]='"+this.correctionLevel+"' [value]='"+this.value+"'"+
-    "cssClass='bshadow'></ngx-qrcode>"+
-        '</div></div>',
+        '<h3>Tipo: '+tipo+'</h3>'+'</div>',
       showCloseButton: true,
-      showCancelButton: true,
+      showCancelButton: false,
       focusConfirm: false,
       confirmButtonText:
-        '<i class="fa fa-thumbs-up"></i> Great!',
+        '<i class="fa fa-thumbs-up"></i> OK',
       confirmButtonAriaLabel: 'Thumbs up, great!',
-      cancelButtonText:
-        '<i class="fa fa-thumbs-down"></i>',
-      cancelButtonAriaLabel: 'Thumbs down'
+    
+      
+      
     })
   }
 
