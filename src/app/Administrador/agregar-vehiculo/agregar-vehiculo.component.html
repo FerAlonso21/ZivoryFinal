@@ -1,61 +1,64 @@
-<h2>Registro de usuario</h2>
 <form [formGroup]="formAlta" (ngSubmit)="onSubmit()">
-    <div class="mb-3">
-        <label class="form-label">Sucursal</label>
-        <select name="" id="" formControlName="sucursal">
-            <option value="Bosques">Bosques</option>
-            <option value="Centro">Centro</option>
-            <option value="San Gerardo">San Gerardo</option>
-        </select>
-        
+    <body>
+        <div class="signup-form">
+            <h2>Alta Carro</h2>
+        <div class="mb-3">
+            <label class="form-label">Sucursal </label>
+            <select formControlName="sucursal">
+                <option value="Bosques">Bosques</option>
+                <option value="Centro">Centro</option>
+                <option value="San Gerardo">San Gerardo</option>
+            </select>
+            
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" formControlName="nombre_coche" placeholder="Nombre del vehículo">
+        </div>
+        <div class="mb-3">
+           
+            <input type="text" class="form-control" formControlName="marca" placeholder="Marca del vehículo">
+        </div>
+        <div class="mb-3">
+          
+            <input type="string" class="form-control" formControlName="anio" placeholder="Año">
+        </div>
+        <div class="mb-3">
+          
+            <input type="text" class="form-control" formControlName="tipo" placeholder="Tipo de carrocería(Ejemplo; Hatchback, Sedán, etc)">
+        </div>
+        <div class="mb-3">
+            
+            <input type="text" class="form-control" formControlName="transmision" placeholder="Transmisión">
+        </div>
+        <div class="mb-3">
+            
+            <input type="text" class="form-control" formControlName="color" placeholder="Color">
+        </div>
+        <div class="mb-3">
+          
+            <input type="text" class="form-control" formControlName="url" placeholder="URL reseña">
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" formControlName="imagen" placeholder="URL imagen">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Necedidad Mantenimiento</label>
+            <select formControlName="mantenimiento">
+                <option value="true">SÍ</option>
+                <option value="false">NO</option>
+            </select>
+           
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Disponibilidad</label>
+            <select formControlName="disponibilidad">
+                <option value="true">Disponible</option>
+                <option value="false">No Disponible</option>
+            </select>
+            
+        </div>
+        <input type="submit" value="Enviar">  
     </div>
-    <div class="mb-3">
-        <label class="form-label">Nombre_Coche</label>
-        <input type="text" class="form-control" formControlName="nombre_coche">
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Marca</label>
-        <input type="text" class="form-control" formControlName="marca">
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Año</label>
-        <input type="string" class="form-control" formControlName="anio">
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Tipo</label>
-        <input type="text" class="form-control" formControlName="tipo">
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Transmision</label>
-        <input type="text" class="form-control" formControlName="transmision">
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Color</label>
-        <input type="text" class="form-control" formControlName="color">
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Url Video Reseña</label>
-        <input type="text" class="form-control" formControlName="url">
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Url Imagen</label>
-        <input type="text" class="form-control" formControlName="imagen">
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Ocupa Mantenimiento</label>
-        <select formControlName="mantenimiento">
-            <option value="true">SÍ</option>
-            <option value="false">NO</option>
-        </select>
-       
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Disponibilidad</label>
-        <select formControlName="disponibilidad">
-            <option value="true">Disponible</option>
-            <option value="false">No Disponible</option>
-        </select>
-        
-    </div>
-    <input type="submit" value="Enviar">
+    </body>
+    
 </form>

@@ -7,6 +7,7 @@ import * as auth from 'firebase/auth';
 import { Router } from '@angular/router';
 import Usuario from 'src/app/Interfaces/UsuariosLogin.interface';
 import { AccesoService } from './acceso.service';
+import swal from 'sweetalert2';
 
 declare global {
   interface Window {
@@ -40,11 +41,27 @@ export class RolesService  {
     return this.afauth
       .signInWithPhoneNumber(phone, appVerified)
       .then((confirmation) => {
-        window.confirmationResult = confirmation;
+        swal.fire({
+      allowOutsideClick: false,
+      title: "Cargando..",
+      text: "Un momento!",
+    }).then((result)=>{
+      
+    });
+    swal.showLoading();
       })
       .catch((err) => {
-        window.alert(err);
-      });
+        swal.close();
+      swal.fire({
+      allowOutsideClick: true,
+      title: "Error...",
+      text: "Algo salio mal.. Revisa tus datos! ",
+      confirmButtonText:'Entendido'
+     
+    });
+      this.router.navigate(['/login']);
+    });
+    
   }
 
   //Verifica que el código ingresado corresponda.

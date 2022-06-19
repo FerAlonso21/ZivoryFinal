@@ -60,8 +60,15 @@ export class RegistrarComponent implements OnInit {
 
   ngOnInit() {
     this.accesoService.selectedRol$.subscribe((usuario:Usuario)=>this.inf=usuario);
-
-
+    swal.fire({
+      allowOutsideClick: false,
+      title: "Cargando..",
+      text: "Un momento!",
+    }).then((result)=>{
+      
+    });
+    swal.showLoading();
+    swal.close();
   }
   
 
@@ -93,7 +100,7 @@ export class RegistrarComponent implements OnInit {
       this.rolesService.addRegistro(this.usuario);
       console.log(this.inf);
       this.accesoService.setRol(this.inf);
-      this.router.navigate(['/Home']);
+      this.router.navigate(['/home']);
 
     });
     // this.aux.password2=this.formReg.get('password2')?.value;

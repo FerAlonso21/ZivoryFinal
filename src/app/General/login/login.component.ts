@@ -35,6 +35,15 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.createCaptcha();
     this.servicio.selectedRol$.subscribe((usuario:Usuario) => this.info = usuario);
+    swal.fire({
+      allowOutsideClick: false,
+      title: "Cargando..",
+      text: "Un momento!",
+    }).then((result)=>{
+      
+    });
+    swal.showLoading();
+    swal.close();
 
   }
   createCaptcha(){
@@ -87,13 +96,17 @@ export class LoginComponent implements OnInit {
       })
       //this.router.navigate(['/main'])
     })
-    .catch(error => console.log(error));
-    /*this.userService.login(this.formLogin.value)
-    .then( response =>{
-      console.log(response);
-      this.router.navigate(['/miembro']);
-    })
-    .catch(error =>console.log(error));*/
+    .catch(err=>{
+      swal.close();
+      swal.fire({
+      allowOutsideClick: true,
+      title: "Error...",
+      text: "Algo salio mal.. Revisa tus datos! ",
+      confirmButtonText:'Entendido'
+     
+    });
+      this.router.navigate(['/login']);
+    });
   }
 
 }

@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http'; 
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-contacto',
   templateUrl: './contacto.component.html',
   styleUrls: ['./contacto.component.css']
 })
-export class ContactoComponent {
+export class ContactoComponent implements OnInit{
 
   title = 'correo';
 
@@ -17,6 +18,17 @@ export class ContactoComponent {
       asunto: new FormControl('',Validators.required),
       msj: new FormControl('',Validators.required)
     })
+  }
+  ngOnInit(): void {
+    swal.fire({
+      allowOutsideClick: false,
+      title: "Cargando..",
+      text: "Un momento!",
+    }).then((result)=>{
+      
+    });
+    swal.showLoading();
+    swal.close();
   }
 
   envio(){
