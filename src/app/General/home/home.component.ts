@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,13 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+    swal.fire({
+      allowOutsideClick: false,
+      title: "Cargando..",
+      text: "Un momento!",
+    });
+    swal.showLoading();
+    swal.close();
   }
 
 }

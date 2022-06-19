@@ -16,12 +16,10 @@ export class AccesoService {
   
   constructor(private router:Router) { }
   get selectedRol$():Observable<Usuario>{
-    console.log("desde el get"+this.rol$)
     return this.rol$.asObservable();
   }
   setRol(usuario:Usuario):void{
-    console.log("dsesde set "+ usuario.rol)
     this.rol$.next(usuario);
-    //this.router.navigate(['/home']);
+    this.router.navigate(['../home']);
   }
 }

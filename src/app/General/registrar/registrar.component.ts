@@ -7,7 +7,7 @@ import { AccesoService } from '../Servicios/acceso.service';
 import { RolesService } from '../Servicios/roles.service';
 import { UserService } from '../Servicios/user.service';
 import { validarQueSeanIguales } from './app.validator';
-
+import swal from 'sweetalert2';
 @Component({
   selector: 'app-registrar',
   templateUrl: './registrar.component.html',
@@ -64,7 +64,15 @@ export class RegistrarComponent implements OnInit {
 
   }
   
+
   async onSubmit(){
+    swal.fire({
+      allowOutsideClick: false,
+      title: "Cargando..",
+      text: "Un momento!",
+    });
+    swal.showLoading();
+
     this.usuario.email= this.rea.get('email')?.value;
     this.usuario.nombre= this.formReg.get('nombre')?.value;
     this.usuario.apellido= this.formReg.get('apellido')?.value;

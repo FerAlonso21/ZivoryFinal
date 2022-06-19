@@ -1,14 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import Registro from 'src/app/Interfaces/registro.interface';
 import { RolesService } from '../Servicios/roles.service';
+import { RecaptchaVerifier } from 'firebase/auth';
 
 import { UserService } from '../Servicios/user.service';
 import { AccesoService } from '../Servicios/acceso.service';
 import Usuario from 'src/app/Interfaces/UsuariosLogin.interface';
+
 import swal from 'sweetalert2';
 import Swal from 'sweetalert2';
+
 
 
 @Component({
@@ -17,11 +20,12 @@ import Swal from 'sweetalert2';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  
+
   formLogin !:FormGroup;
   aux:Boolean=false;
   info!: Usuario;
-  constructor( private userService:UserService, private router:Router, private rolesService:RolesService,private servicio:AccesoService) {
+  constructor( private userService:UserService, private router:Router, public rolesService:RolesService,private servicio:AccesoService,
+    public ngZone: NgZone) {
     this.formLogin = new FormGroup({
       email: new FormControl(),
       password: new FormControl()
@@ -29,10 +33,27 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.servicio.selectedRol$.subscribe((usuario:Usuario) => this.info = usuario)
+    this.createCaptcha();
+    this.servicio.selectedRol$.subscribe((usuario:Usuario) => this.info = usuario);
+
   }
+  createCaptcha(){
+    this.recaptchaVerifier = new RecaptchaVerifier('recaptcha-container',{size: 'visible'}, auth.getAuth());
+    this.recaptchaVerifier.render();
+  }
+  sendCode(phone: string){
+    this.rolesService.sendCode(phone, this.recaptchaVerifier);
+  }
+
   cargar(){ 
+    swal.fire({
+      allowOutsideClick: false,
+      title: "Cargando..",
+      text: "Un momento!",
+    });
+    swal.showLoading();
     this.userService.login(this.formLogin.value)
+    
     .then(response => {
       
       this.rolesService.getRoles().subscribe(registro => {
@@ -45,10 +66,9 @@ export class LoginComponent implements OnInit {
              this.aux=true;
              this.info.email=this.formLogin.get('email')?.value;
              this.info.rol=1;
-             
              this.servicio.setRol(this.info);
               //this.router.navigate(['/admin']);
-              
+              swal.close();
             }
           }
         }
@@ -58,6 +78,7 @@ export class LoginComponent implements OnInit {
           this.servicio.setRol(this.info);
           
           this.router.navigate(['/home']);
+          swal.close();
         }
         //
         
