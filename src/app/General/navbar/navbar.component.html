@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
-  <div class="container-fluid">
+  <div class="container" id="opciones">
     <a class="navbar-brand" href="#" [routerLink]="['home']">
       <img src="../../../assets/img/logo-500.png" width="100" height="50" alt="">
   </a>
@@ -9,7 +9,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" id="a1" aria-current="page" href="#" [routerLink]="['/home']">Home</a>
+          <a class="nav-link active" id="a1" aria-current="page" href="#" [routerLink]="['/home']">Home </a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" id="a2" aria-current="page" href="#" [routerLink]="['/contacto']">Contacto</a>
@@ -17,6 +17,8 @@
         <li class="nav-item">
           <a class="nav-link active" id="a3" aria-current="page" href="#" [routerLink]="['/faq']">FAQ's</a>
         </li>
+      
+        
         
       
         <div *ngIf="(selectedRol$ | async)?.rol ==1">
@@ -61,13 +63,13 @@
       </ul>
     </div>
     
-    
+    <div class="container" id="nomusu">
+      <span id="a4" *ngIf="userLogged|async as user">{{(selectedRol$ | async)?.email}} </span>
+    </div>
     
   </div>
   <div class="container-fluid" id="c2">
-    <div class="nomusu">
-      <p id="a4" *ngIf="userLogged|async as user" selectedRol$ | async)?.email}}> </p>
-    </div>
+
     <div *ngIf="(selectedRol$ | async)?.rol ==3">
       <div class="miembro">
         <button routerLink="/login"  type="button" class="btn btn-outline-light" id="bmiembro"  > 

@@ -1,4 +1,4 @@
-#a1,#a2,#a3,#a4,#a5,#a6,#a7{
+#a1,#a2,#a3,#a5,#a6,#a7{
     color:#0b4d57;
     font-size: 20px;
 }
@@ -27,7 +27,7 @@
     
 }
 .dropdown-menu{
-    background-color:rgb(16,111,126,0.6); ;
+    background-color:rgb(16,111,126,0.6);
 
 }
 
@@ -52,15 +52,37 @@ img{
     width: 31%;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
     li{
         text-align: center;
     }
     #c2{
         width: 100%;
     }
+    #nomusu{
+        margin-bottom: 5%;
+        text-align: left;
+    }
+    #opciones{
+        text-align: center;
+
+    }
     
 }
+
 #navbar{
     background-color: #17a2b8;
+}
+#nomusu{
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+ 
+
+}
+#a4{
+    color:white;
+    display:inline-block;
+    vertical-align: middle;
+
 }
