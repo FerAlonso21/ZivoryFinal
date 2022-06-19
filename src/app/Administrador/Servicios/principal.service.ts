@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { addDoc, collection, Firestore, collectionData, doc, deleteDoc } from '@angular/fire/firestore';
+import { addDoc, collection, Firestore, collectionData, doc, deleteDoc, updateDoc } from '@angular/fire/firestore';
 import Principal from 'src/app/Interfaces/Principal.interface';
 import { Observable } from 'rxjs';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from '@angular/fire/compat/firestore';
@@ -11,12 +11,13 @@ import { map } from 'rxjs';
 })
 export class PrincipalService {
   //Concentrado!:Observable<Principal[]>
-
+  hola!:AngularFirestoreCollection<Principal>
   public itemDoc!:AngularFirestoreDocument<Principal>;
   private itemscoll!:AngularFirestoreCollection<Principal>
   items: Observable<Principal[]>;
   
   constructor(private firestore:Firestore, private afs: AngularFirestore) {
+    this.hola =this.afs.collection('Concentrado');
     this.itemscoll=afs.collection<Principal>('Concentrado');
     this.items=this.itemscoll.snapshotChanges().pipe(
         map(actions => actions.map(a=>{
@@ -33,6 +34,17 @@ export class PrincipalService {
    addPrincipal(principal:Principal){
     const principalRef= collection(this.firestore,'Concentrado');
     return addDoc(principalRef,principal);
+  }
+
+  editarInfo(principal:Principal){
+    this.afs.collection('Concentrado').doc(principal.id).update(principal);
+    
+  }
+
+  getVehiculosSucursal(sucursal:string){
+    this.afs.collection('Concentrado').doc(sucursal).get().subscribe(res => console.log(res));
+    return this.afs.collection<Principal>('Concentrado').doc(sucursal).valueChanges();
+
   }
 
 

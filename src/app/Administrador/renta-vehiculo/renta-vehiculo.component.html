@@ -1,5 +1,42 @@
-<h3>Renta de Autos</h3>
-<div>
+
+<div class="container">
+  <h3>Renta de Autos</h3>
+  <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Sucursal</th>
+          <th scope="col">Nombre De Coche</th>
+          <th scope="col">Marca</th>
+          <th scope="col">Año</th>
+          <th scope="col">Tipo</th>
+          <th scope="col">Transmision</th>
+          <th scope="col">Color</th>
+          <th scope="col">Imagen</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let i of array">
+              <td>{{i.sucursal}}</td>
+              <td>{{i.nombre_coche}}</td>
+              <td>{{i.marca}}</td>
+              <td>{{i.anio}}</td>
+              <td>{{i.tipo}}</td>
+              <td>{{i.transmision}}</td>
+              <td>{{i.color}}</td>
+              <td>{{i.imagen}}</td>
+              <td>
+                <button type="button" class="btn btn-success" (click)="editar(i)">Rentar</button>
+              </td>
+              
+
+          </tr>
+        
+        
+      </tbody>
+    </table>
+</div>
+<!--div>
     <h2>Autos</h2>
     <div *ngIf="!principal.length">No hay productos por el momento</div>
     <table *ngIf="principal.length" class="table table-light table-striped text-center">
@@ -25,12 +62,12 @@
     </table>
 
     <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modelId">
+<!--button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modelId">
   Launch 
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!--div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -49,4 +86,4 @@
     </div>
   </div>
 </div>
-  </div>
+  </div-->

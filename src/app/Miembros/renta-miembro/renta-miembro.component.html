@@ -2,14 +2,19 @@
     <div class="row g-3" >
         <div class="col-12 col-md-6 col-lg-4" *ngFor="let i of array">
             <div class="card">
-                <img src="{{i.url}}" class="card-img-top" alt="">
+                <img src="{{i.imagen}}" class="card-img-top" alt="">
                 <div class="card-body">
-                    <h3 class="card-title">{{i.marca | uppercase}} {{i.nombre_coche | uppercase}} </h3>
-                    <h5 class="card-text">Año: {{i.anio}}</h5>
-                    <h5 class="card-text">Tipo: {{i.tipo}}</h5>
-                    <h5 class="card-text">Color: {{i.color}}</h5>
+                    
+                    <h3 class="card-title text-center">{{i.marca | uppercase}} {{i.nombre_coche | uppercase}} </h3>
+                    <ngx-qrcode
+  [elementType]="elementType"
+  [errorCorrectionLevel]="correctionLevel"
+  [value]="value"
+  cssClass="bshadow"></ngx-qrcode>
+                    <button type="button" class="btn btn-success" (click)="funcion(i)">Informacion</button>
                 </div>
             </div>
+           
         </div>
         
     </div>

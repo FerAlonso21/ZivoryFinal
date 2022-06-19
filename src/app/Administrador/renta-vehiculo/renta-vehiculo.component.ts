@@ -3,6 +3,8 @@ import Principal from 'src/app/Interfaces/Principal.interface';
 import { PrincipalService } from '../Servicios/principal.service';
 import { AngularFirestore, AngularFirestoreCollection} from '@angular/fire/compat/firestore';
 //import { ConService }from './../../service/con.service';
+import swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-renta-vehiculo',
@@ -11,33 +13,39 @@ import { AngularFirestore, AngularFirestoreCollection} from '@angular/fire/compa
 })
 export class RentaVehiculoComponent implements OnInit {
 
-  principal: Principal[]=[];
-  item:any={disponibilidad:''};
-  items:any;
-  constructor( public principalService: PrincipalService) { 
-    this.principalService.retorna().subscribe((items: any)=>{
-        this.items=items;
-        
+  principal:Principal[]=[];
+  array:Principal[]=[];
+  constructor( public servicio: PrincipalService, private route:Router) { 
+    this.servicio.getAutos().subscribe(principal =>{
+      
+      this.principal=principal;
+      for(let i of this.principal){
+          
+        if(i.disponibilidad=="true"){
+            this.array.push(i);
+        }
+      }
     })
 
   }
   
+  editar(info:Principal){
+      info.disponibilidad="false";
+      this.servicio.editarInfo(info);
+      swal.fire('Modificacion Realizada').then((result)=>{
+        //window.location.reload();
+        this.route.navigate(['/home'])
+      });
+     // window.location.reload();
+  }
 
   ngOnInit(): void {
-      this.principalService.getAutos().subscribe(principal =>{
-        console.log(principal);
-        this.principal=principal;
-      })
+      
   }
 
-  editar(principal:Principal){
-    console.log(principal);
-    this.item=principal;
-  }
+  
 
-  formEditar(){
-    this.principalService.editar(this.item);
-  }
+  
 }
 
 
