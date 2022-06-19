@@ -19,6 +19,7 @@ import { DisponibilidadComponent } from './Administrador/disponibilidad/disponib
 import { ConsultamanComponent } from './Administrador/consultaman/consultaman.component';
 import { ListamComponent } from './Administrador/listam/listam.component';
 import { DetalleVehiculoComponent } from './Administrador/detalle-vehiculo/detalle-vehiculo.component';
+import { AutosDisponiblesComponent } from './Administrador/autos-disponibles/autos-disponibles.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -32,6 +33,7 @@ const routes: Routes = [
   {path: 'alta',component: AgregarVehiculoComponent},
   {path: 'grafica',component: GraficaComponent,...canActivate(() => redirectUnauthorizedTo(['/home']) )},
   {path: 'baja',component: BajaVehiculoComponent},
+  {path: 'dispaut',component: AutosDisponiblesComponent},
 
   {path: 'contacto', component: ContactoComponent}, 
   {path: 'renta', component: RentaMiembroComponent,...canActivate(() => redirectUnauthorizedTo(['/home']) )},

@@ -19,8 +19,9 @@ export class AgregarVehiculoComponent implements OnInit {
     transmision: '',
     color:'',
     url:'', 
-    mantenimiento:false,
-    disponibilidad:true,
+    mantenimiento:'',
+    disponibilidad:'',
+    imagen:'',
   };
   constructor(private principalService:PrincipalService) {
   this.formAlta = new FormGroup({
@@ -31,6 +32,7 @@ export class AgregarVehiculoComponent implements OnInit {
     url: new FormControl(),
     color: new FormControl(),
     tipo: new FormControl(),
+    imagen: new FormControl(),
     mantenimiento: new FormControl(),
     disponibilidad: new FormControl(),
     transmision: new FormControl(),
