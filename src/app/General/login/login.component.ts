@@ -17,6 +17,9 @@ import swal from 'sweetalert2';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+  email: string="Email";
+  contra: string="Password";
   recaptchaVerifier: any;
   formLogin !:FormGroup;
   aux:Boolean=false;

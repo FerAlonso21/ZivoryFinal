@@ -35,6 +35,7 @@ import { ListamComponent } from './Administrador/listam/listam.component';
 import { ConsultamanComponent } from './Administrador/consultaman/consultaman.component';
 import { AngularFirestore, AngularFirestoreCollection} from '@angular/fire/compat/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
+import { RandomPipe } from './random.pipe';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { AngularFireModule } from '@angular/fire/compat';
 
     DisponibilidadComponent,
     ListamComponent,
-    ConsultamanComponent
+    ConsultamanComponent,
+    RandomPipe
 
   ],
   imports: [
