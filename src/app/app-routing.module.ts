@@ -30,10 +30,10 @@ const routes: Routes = [
   {path: 'contacto',component: ContactoComponent},
   {path: 'faq',component: FaqComponent},
   {path: 'miembro',component: NavbarMiembroComponent},
-  {path: 'alta',component: AgregarVehiculoComponent},
+  {path: 'alta',component: AgregarVehiculoComponent,...canActivate(() => redirectUnauthorizedTo(['/home']) )},
   {path: 'grafica',component: GraficaComponent,...canActivate(() => redirectUnauthorizedTo(['/home']) )},
-  {path: 'baja',component: BajaVehiculoComponent},
-  {path: 'dispaut',component: AutosDisponiblesComponent},
+  {path: 'baja',component: BajaVehiculoComponent,...canActivate(() => redirectUnauthorizedTo(['/home']) )},
+  {path: 'dispaut',component: AutosDisponiblesComponent,...canActivate(() => redirectUnauthorizedTo(['/home']) )},
 
   {path: 'contacto', component: ContactoComponent}, 
   {path: 'renta', component: RentaMiembroComponent,...canActivate(() => redirectUnauthorizedTo(['/home']) )},
