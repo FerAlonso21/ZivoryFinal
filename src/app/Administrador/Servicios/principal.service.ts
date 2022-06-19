@@ -49,7 +49,6 @@ export class PrincipalService {
 
   eliminar(principal: Principal){
     const eliminado = doc(this.firestore, `Concentrado/${principal.id}`);
-
     return deleteDoc(eliminado);
   }
   
@@ -57,6 +56,8 @@ export class PrincipalService {
    this.itemDoc=this.afs.doc<Principal>("Concentrado/"+principal.id);
    this.itemDoc.update(principal);
   }
+
+  
 }
 
 

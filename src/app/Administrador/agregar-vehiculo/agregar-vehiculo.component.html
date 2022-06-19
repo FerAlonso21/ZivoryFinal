@@ -33,12 +33,24 @@
         <input type="text" class="form-control" formControlName="url">
     </div>
     <div class="mb-3">
+        <label class="form-label">Url Imagen</label>
+        <input type="text" class="form-control" formControlName="imagen">
+    </div>
+    <div class="mb-3">
         <label class="form-label">Ocupa Mantenimiento</label>
-        <input type="text" class="form-control" formControlName="mantenimiento">
+        <select formControlName="mantenimiento">
+            <option value="true">SÍ</option>
+            <option value="false">NO</option>
+        </select>
+       
     </div>
     <div class="mb-3">
         <label class="form-label">Disponibilidad</label>
-        <input type="text" class="form-control" formControlName="disponibilidad">
+        <select formControlName="disponibilidad">
+            <option value="true">Disponible</option>
+            <option value="false">No Disponible</option>
+        </select>
+        
     </div>
     <input type="submit" value="Enviar">
 </form>

@@ -1,1 +1,32 @@
-<p>autos-disponibles works!</p>
+<div class="container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Sucursal</th>
+            <th scope="col">Nombre De Coche</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Año</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Transmision</th>
+            <th scope="col">Color</th>
+            <th scope="col">Imagen</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of array">
+                <td>{{i.sucursal}}</td>
+                <td>{{i.nombre_coche}}</td>
+                <td>{{i.marca}}</td>
+                <td>{{i.anio}}</td>
+                <td>{{i.tipo}}</td>
+                <td>{{i.transmision}}</td>
+                <td>{{i.color}}</td>
+                <td>{{i.imagen}}</td>
+                
+
+            </tr>
+          
+          
+        </tbody>
+      </table>
+</div>

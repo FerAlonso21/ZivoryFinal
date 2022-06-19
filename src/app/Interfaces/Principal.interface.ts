@@ -1,3 +1,5 @@
+
+
 export default interface Principal{
     id?:string;
     sucursal:string;
@@ -8,7 +10,8 @@ export default interface Principal{
     transmision: string;
     color:string;
     url:string;
-    mantenimiento:boolean;
-    disponibilidad:boolean
+    imagen:string;
+    mantenimiento:string;
+    disponibilidad:string;
     
 }
