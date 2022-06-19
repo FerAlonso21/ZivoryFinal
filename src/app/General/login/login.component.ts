@@ -7,6 +7,9 @@ import { RolesService } from '../Servicios/roles.service';
 import { UserService } from '../Servicios/user.service';
 import { AccesoService } from '../Servicios/acceso.service';
 import Usuario from 'src/app/Interfaces/UsuariosLogin.interface';
+import swal from 'sweetalert2';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-login',
@@ -14,6 +17,7 @@ import Usuario from 'src/app/Interfaces/UsuariosLogin.interface';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  
   formLogin !:FormGroup;
   aux:Boolean=false;
   info!: Usuario;
@@ -32,16 +36,16 @@ export class LoginComponent implements OnInit {
     .then(response => {
       
       this.rolesService.getRoles().subscribe(registro => {
-        console.log("registro"+registro);
+        
         for(let i in registro){
           if(registro[i].rol==true){
            
             if(this.formLogin.get('email')?.value == registro[i].email){
-              console.log("ADMINISTRADOR");
+              
              this.aux=true;
              this.info.email=this.formLogin.get('email')?.value;
              this.info.rol=1;
-             console.log("buenosdias")
+             
              this.servicio.setRol(this.info);
               //this.router.navigate(['/admin']);
               
@@ -59,8 +63,21 @@ export class LoginComponent implements OnInit {
         
       })
       //this.router.navigate(['/main'])
+      
     })
-    .catch(error => console.log(error));
+    .catch(error => {
+      console.log(error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Credenciales Invalidas',
+       
+      }).then((result)=>{
+        window.location.reload();
+      })
+     
+    }
+    );
     /*this.userService.login(this.formLogin.value)
     .then( response =>{
       console.log(response);
