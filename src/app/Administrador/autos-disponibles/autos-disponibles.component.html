@@ -1,5 +1,5 @@
 <div class="container">
-    <table class="table">
+    <table class="table" class="table table-striped text-center">
         <thead>
           <tr>
             <th scope="col">Sucursal</th>
@@ -13,7 +13,7 @@
           </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let i of array">
+            <tr *ngFor="let i of array" >
                 <td>{{i.sucursal}}</td>
                 <td>{{i.nombre_coche}}</td>
                 <td>{{i.marca}}</td>
@@ -21,8 +21,7 @@
                 <td>{{i.tipo}}</td>
                 <td>{{i.transmision}}</td>
                 <td>{{i.color}}</td>
-                <td>{{i.imagen}}</td>
-                
+                <td><img src={{i.imagen}} height="150" width="150"></td>
 
             </tr>
           
