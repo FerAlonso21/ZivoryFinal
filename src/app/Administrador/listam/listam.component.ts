@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RolesService } from 'src/app/General/Servicios/roles.service';
+
 
 @Component({
   selector: 'app-listam',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListamComponent implements OnInit {
 
-  constructor() { }
+  constructor(private rolesService:RolesService ) { }
 
   ngOnInit(): void {
-  }
+    this.rolesService.getRoles().subscribe(registro => {
+        
+      for(let i in registro){
+        
 
-}
+        }
+        
+      })
+      
+      //
+      
+    }
+    
+    
+  }
+  
+
+
+
