@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import Principal from 'src/app/Interfaces/Principal.interface';
 import { PrincipalService } from '../Servicios/principal.service';
 import { AngularFirestore, AngularFirestoreCollection} from '@angular/fire/compat/firestore';
-
+import { Router } from '@angular/router';
+import swal from 'sweetalert2';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { AngularFirestore, AngularFirestoreCollection} from '@angular/fire/compa
 export class BajaVehiculoComponent implements OnInit {
  
   principal:Principal[]=[];
-  constructor( public principalService: PrincipalService) { }
+  constructor( public principalService: PrincipalService,private router:Router) { }
 
   ngOnInit(): void {
       this.principalService.getAutos().subscribe(principal =>{
@@ -25,7 +26,10 @@ export class BajaVehiculoComponent implements OnInit {
 
    async borrar(principal:Principal){
      const response = await this.principalService.eliminar(principal); 
-     console.log(response);
+     swal.fire('Baja Exitosa').then((result)=>{
+      //window.location.reload();
+      this.router.navigate(['/home'])
+    });
   }
   
 }

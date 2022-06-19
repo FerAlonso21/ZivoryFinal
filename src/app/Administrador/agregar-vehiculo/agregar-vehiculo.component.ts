@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import Principal from 'src/app/Interfaces/Principal.interface';
 import { PrincipalService } from '../Servicios/principal.service';
-
+import swal from 'sweetalert2';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-agregar-vehiculo',
   templateUrl: './agregar-vehiculo.component.html',
@@ -23,7 +24,7 @@ export class AgregarVehiculoComponent implements OnInit {
     disponibilidad:'',
     imagen:'',
   };
-  constructor(private principalService:PrincipalService) {
+  constructor(private principalService:PrincipalService,private router:Router) {
   this.formAlta = new FormGroup({
     sucursal: new FormControl(),
     nombre_coche: new FormControl(),
@@ -43,9 +44,13 @@ export class AgregarVehiculoComponent implements OnInit {
   ngOnInit(): void {
   }
   async onSubmit(){
-    
+   
     
     const resp = await this.principalService.addPrincipal(this.formAlta.value)
+    swal.fire('Registro Exitoso').then((result)=>{
+      //window.location.reload();
+      this.router.navigate(['/home'])
+    });
     
   }
 

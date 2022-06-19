@@ -4,7 +4,8 @@ import Principal from 'src/app/Interfaces/Principal.interface';
 import { Observable } from 'rxjs';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from '@angular/fire/compat/firestore';
 import { map } from 'rxjs';
-
+import { Router } from '@angular/router';
+import swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class PrincipalService {
   private itemscoll!:AngularFirestoreCollection<Principal>
   items: Observable<Principal[]>;
   
-  constructor(private firestore:Firestore, private afs: AngularFirestore) {
+  constructor(private firestore:Firestore, private afs: AngularFirestore, private router:Router) {
     this.hola =this.afs.collection('Concentrado');
     this.itemscoll=afs.collection<Principal>('Concentrado');
     this.items=this.itemscoll.snapshotChanges().pipe(
@@ -33,7 +34,10 @@ export class PrincipalService {
 
    addPrincipal(principal:Principal){
     const principalRef= collection(this.firestore,'Concentrado');
+    
+    
     return addDoc(principalRef,principal);
+    
   }
 
   editarInfo(principal:Principal){
