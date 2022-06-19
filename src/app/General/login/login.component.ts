@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
       this.rolesService.getRoles().subscribe(registro => {
         console.log("registro"+registro);
         for(let i in registro){
-          if(registro[i].rol==true){
+          if(registro[i].rol=="1"){
            
             if(this.formLogin.get('email')?.value == registro[i].email){
               console.log("ADMINISTRADOR");

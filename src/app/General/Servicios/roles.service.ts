@@ -30,7 +30,7 @@ export class RolesService  {
   }
   getRoles(): Observable<Registro[]>{
     const regisrtoRef= collection(this.firestore,'usuarios');
-    return collectionData(regisrtoRef,{idField:''}) as Observable<Registro[]>;
+    return collectionData(regisrtoRef,{idField:'id'}) as Observable<Registro[]>;
   }
   getUserLog(){
     return this.afauth.authState;

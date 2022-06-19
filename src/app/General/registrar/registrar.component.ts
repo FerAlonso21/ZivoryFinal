@@ -26,7 +26,7 @@ export class RegistrarComponent implements OnInit {
     telefono:'',
     email: 'xxxxx@gmail.com',
     edad:18,
-    rol: false
+    rol: '3'
   };
   aux: any={
     email: 'xxxxx@gmail.com',
@@ -79,7 +79,7 @@ export class RegistrarComponent implements OnInit {
     this.usuario.direccion= this.formReg.get('direccion')?.value;
     this.usuario.telefono= this.formReg.get('telefono')?.value;
     this.usuario.edad= this.formReg.get('edad')?.value;
-    this.usuario.rol=false;
+    this.usuario.rol="2";
     this.aux.email=this.rea.get('email')?.value;
     this.aux.password1=this.rea.get('password1')?.value;
 
