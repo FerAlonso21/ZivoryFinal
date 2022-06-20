@@ -41,41 +41,26 @@ export class RolesService  {
     return this.afauth
       .signInWithPhoneNumber(phone, appVerified)
       .then((confirmation) => {
-        swal.fire({
-      allowOutsideClick: false,
-      title: "Cargando..",
-      text: "Un momento!",
-    }).then((result)=>{
-      
-    });
-    swal.showLoading();
+        window.confirmationResult = confirmation;
+        swal.close();
       })
       .catch((err) => {
         swal.close();
-      swal.fire({
-      allowOutsideClick: true,
-      title: "Error...",
-      text: "Algo salio mal.. Revisa tus datos! ",
-      confirmButtonText:'Entendido'
-     
-    });
-      this.router.navigate(['/login']);
-    });
-    
+        window.alert(err);
+      });
   }
 
   //Verifica que el código ingresado corresponda.
   verifyCode(code: string) {
-        this.servicio.selectedRol$.subscribe((usuario:Usuario) => this.info = usuario);
-    return window.confirmationResult.confirm(code).then((result: any) => {
-      let credentials = auth.PhoneAuthProvider.credential(window.confirmationResult.verificationId,code);
-      this.afauth.signInWithCredential(credentials);
-      this.info.rol=2;   
-      this.info.email='PhoneUser@gmail.com';
-      console.log(this.info);
-
-      this.servicio.setRol(this.info);
-      this.router.navigate(['/Home']);
-    });
+    this.servicio.selectedRol$.subscribe((usuario:Usuario) => this.info = usuario);
+return window.confirmationResult.confirm(code).then((result: any) => {
+  let credentials = auth.PhoneAuthProvider.credential(window.confirmationResult.verificationId,code);
+  this.afauth.signInWithCredential(credentials);
+  this.info.rol=2;   
+  this.info.email='PhoneUser@gmail.com';
+  console.log(this.info);
+  this.servicio.setRol(this.info);
+  this.router.navigate(['/home']);
+});
   }
 }
