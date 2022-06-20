@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
     this.createCaptcha();
     this.servicio.selectedRol$.subscribe((usuario:Usuario) => this.info = usuario);
     swal.fire({
-      allowOutsideClick: false,
+      allowOutsideClick: true,
       title: "Cargando..",
       text: "Un momento!",
     }).then((result)=>{
@@ -51,12 +51,20 @@ export class LoginComponent implements OnInit {
     this.recaptchaVerifier.render();
   }
   sendCode(phone: string){
+    swal.fire({
+      allowOutsideClick: false,
+      title: "Cargando..",
+      text: "Un momento!",
+    }).then((result)=>{
+      
+    });
+    swal.showLoading();
     this.rolesService.sendCode(phone, this.recaptchaVerifier);
   }
 
   cargar(){ 
     swal.fire({
-      allowOutsideClick: false,
+      allowOutsideClick: true,
       title: "Cargando..",
       text: "Un momento!",
     }).then((result)=>{
